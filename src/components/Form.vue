@@ -1,11 +1,24 @@
-<script setup>
+<script>
+export default {
+  methods: {
+    showAlert() {
+      this.$swal(
+        "Saved data",
+        "You can answer the survey again by clicking on the button",
+        "success"
+      ).then(() => {
+        window.location.reload();
+      });
+    },
+  },
+};
 </script>
 
 <template>
   <section>
     <article>
       <h1>Developer survey</h1>
-      <form>
+      <form @submit.prevent="showAlert">
         <div class="container-form">
           <div class="container-input" id="first-part">
             <label for="name">What's your name?</label>
@@ -21,18 +34,32 @@
               <option value="ca">Canada</option>
               <option value="nz">New Zealand</option>
             </select>
-            <label for="position">What is your current professional position?</label>
+            <label for="position"
+              >What is your current professional position?</label
+            >
             <div>
-              <input type="radio" id="employee" value="employee" name="position" />
+              <input
+                type="radio"
+                id="employee"
+                value="employee"
+                name="position"
+              />
               <label for="employee">Employee</label>
             </div>
             <div>
-              <input type="radio" id="unemployed" value="unemployed" name="position"/>
+              <input
+                type="radio"
+                id="unemployed"
+                value="unemployed"
+                name="position"
+              />
               <label for="unemployed">Unemployed</label>
             </div>
           </div>
           <div class="container-input">
-            <label for="front-end">Select the programming areas you like.</label>
+            <label for="front-end"
+              >Select the programming areas you like.</label
+            >
             <label>
               <input type="checkbox" id="front-end" value="front-end" />
               Front-end
@@ -82,10 +109,10 @@ h1 {
   padding-top: 60px;
   margin-block: 20px;
   font-size: 4em;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: "Red Hat Display", sans-serif;
   font-weight: 900;
-  background: #08BBCF;
-  background: linear-gradient(to right, #08BBCF 0%, #CF11A3 100%);
+  background: #08bbcf;
+  background: linear-gradient(to right, #08bbcf 0%, #cf11a3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -108,10 +135,10 @@ select {
   border-radius: 10px;
   border: 1px solid grey;
 }
-input{
-  padding-inline: 10px;	
+input {
+  padding-inline: 10px;
 }
-input:focus{
+input:focus {
   outline: none;
 }
 .container-form {
@@ -130,16 +157,16 @@ input:focus{
 button {
   width: 100%;
   background: transparent;
-  border: 1px solid #08BBCF;
+  border: 1px solid #08bbcf;
   border-radius: 20px;
   height: 30px;
-  color: #08BBCF;
+  color: #08bbcf;
   font-weight: 500;
   font-size: 1.2em;
 }
-button:focus{
+button:focus {
   outline: none;
-  background: #08BBCF;
+  background: #08bbcf;
   color: white;
 }
 </style>
